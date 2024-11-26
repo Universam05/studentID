@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentID</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+<style>
+    img {
+        border-radius: 50%;
+    }
+    .carousel-container {
+        text-align: center;
+        padding: 20px;
+    }
+    .btn{
+        width: 100px;
+        height: 50px;
+    }
+</style>
+<body class="bg-light">
+    <main class="bg-warning w-25 mx-auto mt-5 p-4 d-flex justify-content-center">
+        <button class="btn btn-primary me-3" onclick="prev()">Prev</button>
+        <div id="carousel">
+            <!-- Content will be injected by JavaScript -->
+        </div>
+        <button class="btn btn-primary ms-3" onclick="next()">Next</button>
+    </main>
+</body>
+<script>
+ 
+    let studentInfo = [
+        {
+            Image: 'info 3.jpeg',
+            name: 'Adelakun Oluwaseyifunmi',
+            college: 'SQI',
+            age: 23,
+            course: 'Data scientist'
+        },
+        {
+            Image: 'info 4.jpeg',
+            name: 'Olabanji Adeyemi',
+            college: 'All Talentz',
+            age: 24,
+            course: 'Cost Estimator'
+        },
+        {
+            Image: 'info1 .jpeg',
+            name: 'AdeBanty Wilson',
+            college: 'SQI',
+            age: 36,
+            course: 'software engineer'
+        },
+        {
+            Image: 'info 2.png',
+            name: 'Jeffery Benson',
+            college: 'SQI',
+            age: 28,
+            course: 'cybersecurity'
+        }
+    ];
+
+    let index = 0;
+
+    // Function to display the current student information
+    function display() {
+        let carousel = document.getElementById('carousel');
+        let currentStudent = studentInfo[index];
+
+        carousel.innerHTML = `
+           
+            <div>
+                <img src="${currentStudent.Image}" alt="Student Image" width="200" height="200">
+                <p><strong>Name:</strong> ${currentStudent.name}</p>
+                <p><strong>College:</strong> ${currentStudent.college}</p>
+                <p><strong>Age:</strong> ${currentStudent.age}</p>
+                <p><strong>Course:</strong> ${currentStudent.course}</p>
+            </div>
+           
+        `
+    }
+
+    display()
+
+    // Navigate to the previous student
+    function prev() {
+        if (index === 0) {
+    index = studentInfo.length-1
+    
+} else {
+    index--
+   
+}
+        display();
+    }
+
+    // Navigate to the next student
+    function next() {
+        if (index === studentInfo.length-1) {
+    index = 0
+    
+} else {
+    index++
+    
+}
+      
+        display();
+    }
+   
+</script>
+</html>
+
